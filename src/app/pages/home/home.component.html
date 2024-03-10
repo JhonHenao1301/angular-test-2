@@ -5,6 +5,7 @@
       <input
         type="text"
         class="px-4 py-2 border rounded-md"
+        [formControl]="searchCtrl"
         placeholder="Search a pokemon"
       />
       <button type="button" class="px-4 py-2 border rounded-md ml-2">
@@ -12,7 +13,20 @@
       </button>
     </form>
   </aside>
-  <section class="w-full h-screen p-4 bg-slate-100">
-    <p>Here I'll show pokemons</p>
+  <section class="w-full h-screen p-4 bg-slate-50">
+    <div class="grid grid-cols-3 gap-4 py-4">
+      @for (pokemon of pokemonList; track $index) {
+      <div class="border px-4 py-2 bg-slate-100 rounded-md">
+        <img
+          src="https://unavatar.io/20"
+          class="w-full h-fit"
+          alt="Avatar image"
+        />
+        <h1 class="text-base font-semibold">
+          {{ pokemon.name | uppercase }}
+        </h1>
+      </div>
+      }
+    </div>
   </section>
 </main>
